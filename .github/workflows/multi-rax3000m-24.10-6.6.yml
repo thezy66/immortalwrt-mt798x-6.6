@@ -125,13 +125,6 @@ jobs:
           cd /home/runner/work/openwrt_build/openwrt
           make toolchain/install -j$(nproc)
 
-      - name: Add Toolchain to PATH
-        run: |
-          TOOLCHAIN_BIN=$(find /home/runner/work/openwrt_build/openwrt/staging_dir -name "bin" -type d | grep "toolchain-aarch64" | head -n 1)
-          if [ -n "$TOOLCHAIN_BIN" ]; then
-            echo "$TOOLCHAIN_BIN" >> $GITHUB_PATH
-          fi
-
       - name: Start Build
         run: |
           cd /home/runner/work/openwrt_build/openwrt
