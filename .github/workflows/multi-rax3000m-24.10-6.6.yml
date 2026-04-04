@@ -28,7 +28,7 @@ jobs:
 
     steps:
       - name: Checkout Workflow Repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: 极限清理系统环境 & 扩容
         uses: easimon/maximize-build-space@master
@@ -142,7 +142,7 @@ jobs:
         run: echo "tag=immortalwrt-$(date +'%Y%m%d-%H%M')" >> $GITHUB_OUTPUT
 
       - name: Upload Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.tag.outputs.tag }}
           name: "RAX3000M [${{ env.MY_CONFIG_NAME }}] - ${{ steps.tag.outputs.tag }}"
